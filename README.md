@@ -1,2 +1,7 @@
-# mpc_and_mhe
-Optimization Model Predictive Control and Moving Horizon Estimation with CasADi in Python
+# MPC and MHE
+Optimization Model Predictive Control (MPC) and Moving Horizon Estimation (MHE) with CasADi in Python.
+
+$$
+\min_w J(w) 
+$$
+
