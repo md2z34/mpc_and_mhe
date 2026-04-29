@@ -1,0 +1,45 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usetheme{default}
+\usecolortheme{default}
+
+\title{Optimization with CasADi}
+\author{Kis, Péter}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Optimization}
+\begin{equation*}
+ \min_w J(w)
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Linear Programming}
+Farmer wants to grow \textcolor{red}{apples} and \textcolor{blue}{bananas}.
+
+\begin{center}
+\begin{tabular}{ c|c|c|c }
+\hline
+  & Acreage needed & Fertilizer needed & Profit\\
+  & [$\text{m}^2/\text{ton}$] & [kg/ton] & [USD/ton] \\
+  \hline
+ \textcolor{red}{A} & 4000 & 60 & 700 \\
+ \textcolor{blue}{B} & 3000 & 80 & 600 \\
+ \hline
+\end{tabular}
+\end{center}
+Farmer has a field of $100\;000\;\text{m}^2$ and can legally use no more than 2000 kg fertilizer.\\
+\vspace{1em}
+What to plant to maximize profit?
+
+\end{frame}
+\end{document}
