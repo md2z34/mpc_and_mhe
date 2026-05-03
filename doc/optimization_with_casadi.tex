@@ -37,7 +37,7 @@ What to plant to maximize profit?
 
 
 \begin{frame}
- \frametitle{Example \#1 -- Formulation of OCP}
+ \frametitle{Example \#1 -- Formulation}
 \begin{columns}
 \begin{column}{0.5\textwidth}
 $m_a$, $m_b$ -- mass of apple, and banana\\
@@ -99,8 +99,8 @@ opti.solver('ipopt')
 
 solution = opti.solve()
 
-print(f'Mass of apples: {solution.value(mass_apple):.2f} kg')
-print(f'Mass of bananas: {solution.value(mass_banana):.2f} kg')
+print(f'Mass of apples: {solution.value(mass_apple):.2f} tons')
+print(f'Mass of bananas: {solution.value(mass_banana):.2f} tons')
 \end{minted}
 \end{column}
 \begin{column}{0.5\textwidth}
@@ -108,5 +108,10 @@ print(f'Mass of bananas: {solution.value(mass_banana):.2f} kg')
 \includegraphics[width=\textwidth]{pic/ex_1_casadi}
 \end{column}
 \end{columns}
- \end{frame}
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Example \#2 -- Second order equation}
+\end{frame}
 \end{document}
