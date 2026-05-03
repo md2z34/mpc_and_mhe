@@ -23,13 +23,13 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Linear Programming}
+\frametitle{Example \#1 -- Linear Programming}
 Farmer wants to grow \textcolor{red}{apples} and \textcolor{blue}{bananas}.
 
 \begin{center}
 \begin{tabular}{ c|c|c|c }
 \hline
-  & Acreage needed & Fertilizer needed & Profit\\
+  & Area needed & Fertilizer needed & Profit\\
   & [$\text{m}^2/\text{ton}$] & [kg/ton] & [USD/ton] \\
   \hline
  \textcolor{red}{A} & 4000 & 60 & 700 \\
@@ -40,6 +40,36 @@ Farmer wants to grow \textcolor{red}{apples} and \textcolor{blue}{bananas}.
 Farmer has a field of $100\;000\;\text{m}^2$ and can legally use no more than 2000 kg fertilizer.\\
 \vspace{1em}
 What to plant to maximize profit?
+\end{frame}
 
+\begin{frame}
+ \frametitle{Example \#1 -- Formulation of OCP}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+$m_a$, $m_b$ -- mass of apple, and banana\\
+
+Control variables, $$w = [m_a, m_b]$$
+
+the profit, $$P(w) = 700 m_a + 600 m_b$$\\
+the area used, $$A(w) = 4000 m_a + 3000 m_b$$\\
+fertilizer used, $$F(w) = 60 m_a + 80 m_b$$\\
+\end{column}
+\begin{column}{0.5\textwidth}  %%<--- here
+$$\max_w P(w) \rightarrow \min_w [-P(w)] $$
+\begin{alignat*}{2}
+\text{s.t.}\quad & 0 \le A(w) \le 100000\\
+& 0 \le F(w) \le 2000
+\end{alignat*}
+Optional constraints: \\
+$$0 \le m_a, m_b $$
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Example \#1 -- Solution in LibreOffice Calc}
+ You go to menu \texttt{Tools/Solver}
+ \centering
+\includegraphics[width=\textwidth]{pic/ex_1_lo_calc}
 \end{frame}
 \end{document}
