@@ -1,6 +1,5 @@
 from casadi import Opti
 
-
 opti = Opti()
 
 mass_apple = opti.variable()

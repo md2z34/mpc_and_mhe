@@ -2,6 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
+\usepackage{minted}
 \usetheme{default}
 \usecolortheme{default}
 
@@ -10,22 +11,14 @@
 \date{\today}
 
 \begin{document}
-
 \begin{frame}
     \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Optimization}
-\begin{equation*}
- \min_w J(w)
-\end{equation*}
-\end{frame}
 
 \begin{frame}
 \frametitle{Example \#1 -- Linear Programming}
 Farmer wants to grow \textcolor{red}{apples} and \textcolor{blue}{bananas}.
-
 \begin{center}
 \begin{tabular}{ c|c|c|c }
 \hline
@@ -41,6 +34,7 @@ Farmer has a field of $100\;000\;\text{m}^2$ and can legally use no more than 20
 \vspace{1em}
 What to plant to maximize profit?
 \end{frame}
+
 
 \begin{frame}
  \frametitle{Example \#1 -- Formulation of OCP}
@@ -66,10 +60,53 @@ $$0 \le m_a, m_b $$
 \end{columns}
 \end{frame}
 
+
 \begin{frame}
  \frametitle{Example \#1 -- Solution in LibreOffice Calc}
  You go to menu \texttt{Tools/Solver}
  \centering
 \includegraphics[width=\textwidth]{pic/ex_1_lo_calc}
 \end{frame}
+
+
+\begin{frame}[fragile]
+ \frametitle{Example \#1 -- Solution in CasADi}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+ \tiny
+ \begin{minted}{python}
+from casadi import Opti
+
+opti = Opti()
+
+mass_apple = opti.variable()
+mass_banana = opti.variable()
+opti.minimize(-700 * mass_apple - 600 * mass_banana)
+
+area_needed = 4000 * mass_apple + 3000 * mass_banana
+fertilizer_needed = 60 * mass_apple + 80 * mass_banana
+
+opti.subject_to(mass_apple >= 0)
+opti.subject_to(mass_banana >= 0)
+
+opti.subject_to(opti.bounded(0, area_needed, 100_000))
+opti.subject_to(opti.bounded(0, fertilizer_needed, 2000))
+
+opti.set_initial(mass_apple, 5)
+opti.set_initial(mass_banana, 5)
+
+opti.solver('ipopt')
+
+solution = opti.solve()
+
+print(f'Mass of apples: {solution.value(mass_apple):.2f} kg')
+print(f'Mass of bananas: {solution.value(mass_banana):.2f} kg')
+\end{minted}
+\end{column}
+\begin{column}{0.5\textwidth}
+ \centering
+\includegraphics[width=\textwidth]{pic/ex_1_casadi}
+\end{column}
+\end{columns}
+ \end{frame}
 \end{document}
