@@ -7,7 +7,7 @@
 \usecolortheme{default}
 
 \title{Optimization with CasADi}
-\author{Kis, Péter}
+\author{Péter Kis, PhD}
 \date{\today}
 
 \begin{document}
@@ -113,5 +113,21 @@ print(f'Mass of bananas: {solution.value(mass_banana):.2f} tons')
 
 \begin{frame}
  \frametitle{Example \#2 -- Second order equation}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+
+ $$ P(w) = w^2 - 6w + 13 $$
+
+ $$\min_w P(w)$$
+
+ $$\frac{dP(w)}{dw} = 2w - 6 = 0$$
+
+ $$ w = 3, \, P(3) = 4 $$
+\end{column}
+\begin{column}{0.6\textwidth}
+  \centering
+\includegraphics[width=\textwidth]{pic/second_order_polynomial_plot}
+\end{column}
+\end{columns}
 \end{frame}
 \end{document}

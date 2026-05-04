@@ -22,5 +22,5 @@ opti.solver('ipopt')
 
 solution = opti.solve()
 
-print(f'Mass of apples: {solution.value(mass_apple):.2f} kg')
-print(f'Mass of bananas: {solution.value(mass_banana):.2f} kg')
+print(f'Mass of apples: {solution.value(mass_apple):.2f} tons')
+print(f'Mass of bananas: {solution.value(mass_banana):.2f} tons')
